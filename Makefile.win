@@ -1,0 +1,28 @@
+# Project: Arcomage
+# Makefile created by Dev-C++ 5.6.3
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = Arcomage.o
+LINKOBJ  = Arcomage.o
+LIBS     = -L"X:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"X:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"X:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"X:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"X:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include"
+CXXINCS  = -I"X:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"X:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"X:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include" -I"X:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include/c++"
+BIN      = Arcomage.exe
+CXXFLAGS = $(CXXINCS) -std=c++11
+CFLAGS   = $(INCS) -std=c++11
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+Arcomage.o: Arcomage.cpp
+	$(CPP) -c Arcomage.cpp -o Arcomage.o $(CXXFLAGS)
